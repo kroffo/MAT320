@@ -1,0 +1,27 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\begin{document}
+
+\textbf{Kenny Roffo\hfill Quiz 3 Formula Sheet}\\
+
+\textbf{Newton's Divided Differences}:\\ $P(x)=f[x_1]+f[x_1 x_2](x-x_1)+f[x_1 x_2 x_3](x-x_1)(x-x_2)+...$
+\begin{align*}
+f[x_k]&=f(x_k)\\
+f[x_k x_{k+1}]&=\frac{f[x_{k+1}]-f[x_k]}{x_{k+1}-x_k}\\
+f[x_k x_{k+1} x_{k+2}]&=\frac{f[x_{k+1} x_{k+2}]-f[x_k x_{k+1}]}{x_{k+2}-x_k}.....
+\end{align*}
+
+\textbf{Interpolation Error Formula}: $f(x)-P(x)=\frac{(x-x_1)(x-x_2)...(x-x_{n})}{n!}f^{(n)}(c)$\\
+Here $c$ must be between the largest and smallest $x_n$.\\
+
+\textbf{Chebyshev Nodes}: The choices for n points on the interval $[-1,1]$ to interpolate a function with the minimized maximum error are given by $x_i=\cos\left(\frac{(2i-1)\pi}{2n}\right)$ for $i=1,2,...,n$. The minimum error is then $\frac{1}{2^{n-1}}$\\
+
+\textbf{Continuous Least Squares}\\
+$E=||f(x)-P(x)||^2=\int_a^b(f(x)-P(x))^2\dif{x}$\hspace{0.8in}$<f,g>=\int_{-1}^1f(x)g(x)\dif{x}$\\
+Beginning with $\{1,x,x^2,...\}$ the Gram-Schmidt process yields $\{1,x,x^2-\frac{1}{3},x^3-\frac{3}{5},x^4-\frac{6}{7}x^2+\frac{3}{35},...\}$ for the Legendre Polynomials. (This is on $[-1,1]$ only!); The solution to the least square error problem is $P(x)=a_0l_0(x)+a_1l_1(x)+...$ where $a_i=\frac{<f,l_i>}{<l_i,l_i>}$\\
+
+\textbf{Discrete Least Squares}\\
+Use general forms of polynomials $y=a+bx$ for linear regression, $y=a+bx+cx^2$ for quadratic regression, etc. Make a system of equations by plugging in $x$ and $y$ for each point. This system forms a matrix equation: $A\overline{x}=b$ This system can be solved using $A^TA\overline{x}=A^Tb$. The solution can be found using the augmented matrix $[A^TA|A^Tb]$.
+\end{document}
