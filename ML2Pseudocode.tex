@@ -1,0 +1,37 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb}
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\title{Numerical Analysis}
+\subtitle{MATLAB Assignment 2}
+\author{Kenny Roffo, Nicholas Jira}
+\date{Due April 13, 2015}
+\begin{document}
+
+\maketitle
+\ \\
+Romberg$(f,a,b,tol,max,success)$:\\\\
+$r=[,]$\\
+$count=0$\\
+$r[1,1]=(b-a)*(f(a)+f(b))/2$\\
+$r[0,0]=r[1,1]+2*tol$\\
+while($count \le max$ and $tol*(-1) \le r[count][count] - r[count+1][count+1] \le tol)$:
+
+$count=count+1$
+
+$h=(b-a)/2\hat \ (count-1)$
+
+$fsum=0$
+
+for $i=1$ to $2\hat \ (count-1)$:
+
+\hspace{0.25 in}$fsum=fsum+a+(2i-1)*h$
+
+$r[count+1][1]=r[count][1]/2+h*fsum$
+
+for $k=2$ to $count+1$:
+
+\hspace{0.25 in}$r[count+1][k]=(4\hat \ (k-1)*r[count+1][k-1]-r[count][k-1])/(4\hat \ (k-1)-1)$
+success = $tol*(-1) \le r[count][count] - r[count+1][count+1] \le tol$\\
+return $r[count+1][count+1]$
+\end{document}
