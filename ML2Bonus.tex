@@ -1,0 +1,40 @@
+\documentclass{scrartcl}
+\usepackage{amsmath,amssymb,commath}
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\title{Numerical Analysis}
+\subtitle{MATLAB Assignment 2 Bonus}
+\author{Kenny Roffo, Nicholas Jira}
+\date{Due April 24, 2015}
+\begin{document}
+
+\maketitle
+
+Problem: Calculate by hand: $$\int_0^{0.35}\frac{1}{x^2-4}\dif{x}$$\\
+
+\begin{displaymath}
+\frac{1}{x^2-4} = \frac{1}{(x-2)(x+2)} = \frac{A}{x-2} + \frac{B}{x+2} \implies 1=A(x+2)+B(x-2)
+\end{displaymath}
+
+Choose $x=2$:
+\begin{displaymath}
+1=4A \implies A=\frac{1}{4}
+\end{displaymath}
+
+Choose $x=-2$:
+\begin{displaymath}
+1=-4B \implies B=-\frac{1}{4}
+\end{displaymath}
+
+Thus $\frac{1}{x^2-4}=\frac{1}{4(x-2)}-\frac{1}{4(x+2)}$. We now calculate:
+\begin{align*}
+\int_0^{0.35}\frac{1}{4(x-2)}-\frac{1}{4(x+2)}\dif{x}
+&= \frac{1}{4}\left(-\int_0^{0.35}\frac{1}{2-x}\dif{x}-\int_0^{0.35}\frac{1}{x+2}\dif{x}\right)\\
+&= \frac{1}{4}\left(\left[\ln(2-x)\right]_0^{0.35}+\left[\ln(x+2)\right]_0^{0.35}\right)\\
+&= \frac{1}{4}\left(\ln(1.65)-\ln(2)-\ln(2.35)+\ln(2)\right)\\
+&= \frac{1}{4}\ln\left(\frac{1.65}{2.35}\right)\\
+&\approx -0.088410010061
+\end{align*}
+
+So $\int_0^{0.35}\frac{1}{x^2-4}\dif{x} \approx -0.088410010061$
+\end{document}
